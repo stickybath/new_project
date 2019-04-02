@@ -25,27 +25,27 @@ lazy_static! {
  *     main program function
  */
 fn main() {
-	let mut name   = String::new(); //name of new project
-	let mut output = String::new(); //type of new project
+    let mut name   = String::new(); //name of new project
+    let mut output = String::new(); //type of new project
 
     //get and sanitize project name
     println!("project name:");
     stdin().read_line(&mut name)
            .expect("");
-	name = name.trim_right()
-	           .to_string();
+    name = name.trim_right()
+               .to_string();
 
 	//get and sanitize project type
 	println!("project type: "); 
 	stdin().read_line(&mut output)
 	       .expect("");
-	output = output.trim_right()
-	               .to_string()
-	               .to_lowercase();
-	if !(Outputs.contains(&&output.as_ref())) {
-		println!("{0} is not a valid project type", output);
-		return;
-	}
+    output = output.trim_right()
+                   .to_string()
+                   .to_lowercase();
+    if !(Outputs.contains(&&output.as_ref())) {
+        println!("{0} is not a valid project type", output);
+        return;
+    }
 	output = format!("--{0}", output);
 
 	//build and run command
