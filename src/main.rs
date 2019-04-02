@@ -29,9 +29,9 @@ fn main() {
 	let mut output = String::new(); //type of new project
 
     //get and sanitize project name
-	println!("project name:");
-	stdin().read_line(&mut name)
-	       .expect("");
+    println!("project name:");
+    stdin().read_line(&mut name)
+           .expect("");
 	name = name.trim_right()
 	           .to_string();
 
