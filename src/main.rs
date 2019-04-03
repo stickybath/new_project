@@ -12,7 +12,7 @@ use std::process::Command;
  *     build types.
  */
 lazy_static! {
-    static ref Outputs: Vec<&'static str> = {
+    static ref OUTPUTS: Vec<&'static str> = {
         let mut outputs = Vec::new();
         outputs.push("bin");
         outputs.push("lib");
@@ -32,17 +32,17 @@ fn main() {
     println!("project name:");
     stdin().read_line(&mut name)
            .expect("");
-    name = name.trim_right()
+    name = name.trim_end()
                .to_string();
 
     //get and sanitize project type
     println!("project type: ");
     stdin().read_line(&mut output)
            .expect("");
-    output = output.trim_right()
+    output = output.trim_end()
                    .to_string()
                    .to_lowercase();
-    if !(Outputs.contains(&&output.as_ref())) {
+    if !(OUTPUTS.contains(&&output.as_ref())) {
         println!("{0} is not a valid project type", output);
         return;
     }
